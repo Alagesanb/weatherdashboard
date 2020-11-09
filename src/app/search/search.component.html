@@ -1,11 +1,13 @@
-<mat-card>    
-  <!-- Title of an Card -->    
-  <mat-card-title>    
-    Dashboard
-  </mat-card-title>    
-  
-  <mat-card-content>
+<mat-toolbar color="primary">
+  Weather Search Info
+</mat-toolbar>
+<div class="content" fxLayout="row wrap" fxLayoutGap="16px">
+  <mat-card class="mat-elevation-z4">
+    <mat-card-header>
+      <mat-card-title>Search Info</mat-card-title>
+    </mat-card-header>
     <form  [formGroup]="weatherSearchForm" (submit)="weatherSearchbyLocation(weatherSearchForm.value)">    
+    <mat-card-content>
       <div class="form-group">
         <mat-form-field class="demo-full-width">  
           <input matInput placeholder="Searching for a city.." formControlName="city">    
@@ -51,7 +53,7 @@
         <div>
           <button type="submit" [disabled]="weatherSearchForm.value.forecastdata === ''" mat-raised-button color="primary">Search for the forecast</button>
         </div>
-    </form>
-
-  </mat-card-content>    
-</mat-card> 
+    </mat-card-content>
+  </form>
+  </mat-card>
+</div>
