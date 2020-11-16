@@ -63,39 +63,39 @@ export class SearchComponent implements OnInit {
     console.log(formValues);
     //Current Forecast
     if(formValues.forecastdata === 'Current Forecast'){
-      var currentForecastInfo = JSON.parse(localStorage.getItem('currentForecast')) || [];
+      var currentForecastInfo = JSON.parse(window.localStorage.getItem('currentForecast')) || [];
       this.searchWeatherService
         .getCurrent(formValues.forecastdata,formValues.city, formValues.state, formValues.country)
         .subscribe(data => {
           this.currentData = data;
           currentForecastInfo.push(this.currentData);
-          localStorage.setItem('currentForecast', JSON.stringify(currentForecastInfo));
+          window.localStorage.setItem('currentForecast', JSON.stringify(currentForecastInfo));
       });
     }
     
 
       if(formValues.forecastdata === 'Hourly Forecast'){
         // Hourly Forecast
-        var hourlyForecastInfo = JSON.parse(localStorage.getItem('hourlyForecast')) || [];
+        var hourlyForecastInfo = JSON.parse(window.localStorage.getItem('hourlyForecast')) || [];
         this.searchWeatherService
           .getHourly( formValues.forecastdata, formValues.latitude, formValues.longitude )
           .subscribe(data => {
             this.hourlyData = data;
             hourlyForecastInfo.push(this.hourlyData);
-            localStorage.setItem('hourlyForecast', JSON.stringify(hourlyForecastInfo));
+            window.localStorage.setItem('hourlyForecast', JSON.stringify(hourlyForecastInfo));
         });
       }
 
       if(formValues.forecastdata === '16-day Forecast'){
         // 16 day Forecast
-        var Day16ForecastInfo = JSON.parse(localStorage.getItem('16dayForecast')) || [];
+        var Day16ForecastInfo = JSON.parse(window.localStorage.getItem('16dayForecast')) || [];
         this.searchWeatherService
           .get16DayForecast( formValues.forecastdata, formValues.latitude, formValues.longitude )
           .subscribe(data => {
             this.day16Data = data;
             console.log("16-day data",this.day16Data);
             Day16ForecastInfo.push(this.day16Data);
-            localStorage.setItem('16dayForecast', JSON.stringify(Day16ForecastInfo));
+            window.localStorage.setItem('16dayForecast', JSON.stringify(Day16ForecastInfo));
         });
       }
     
