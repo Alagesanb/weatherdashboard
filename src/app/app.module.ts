@@ -15,7 +15,7 @@ import { MatSelectModule} from '@angular/material/select';
 import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { DataTablesModule } from 'angular-datatables';
+// import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -24,13 +24,15 @@ import { MatListModule } from '@angular/material/list';
 import { SearchService } from '../app/search.service';
 import { SearchinfoComponent } from './searchinfo/searchinfo.component'
 import {MatTableModule} from '@angular/material/table';
+import { InfoComponent } from './info/info.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    SearchinfoComponent
+    SearchinfoComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,7 @@ import {MatTableModule} from '@angular/material/table';
     MatRadioModule,      
     MatSelectModule,         
     MatSlideToggleModule,
-    DataTablesModule
+    // DataTablesModule
   ],      
   exports: [      
     MatButtonModule,      
